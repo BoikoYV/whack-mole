@@ -1,0 +1,246 @@
+@font-face {
+    font-family: 'bakso';
+    src: url('fonts/baksosapi-webfont.woff2') format('woff2'), url('./fonts/baksosapi-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'comic_neue';
+    src: url('fonts/comicneue-regular-webfont.woff2') format('woff2'), url('./fonts/comicneue-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+}
+
+button {
+    border: none;
+    font-family: inherit;
+    transition: .3s;
+}
+
+.page {
+    height: 100vh;
+    width: 100%;
+    background-color: #b5e5ff;
+    font-family: bakso, Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    flex-direction: column;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url(./watercolor-background.jpg);
+}
+
+/* Выбор сложности */
+
+.game-mode {
+    display: none;
+    color: #1980b0f7;
+}
+
+.game-mode--active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(210, 226, 255);
+    padding: 80px 100px;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.game-mode__text {
+    font-size: 34px;
+    line-height: 0;
+    margin-bottom: 70px;
+}
+
+.game-mode__btn {
+    font-family: 'comic_neue', Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 24px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: inherit;
+}
+
+.game-mode__btn:hover {
+    background-color: #03a9f463;
+    color: #fff;
+}
+
+.game-mode__btn:active {
+    background-color: #0981b8de;
+}
+
+.game-mode__btn+.game-mode__btn {
+    margin-left: 20px;
+}
+
+/* Очки */
+
+.game-points {
+    display: none;
+    border: 2px solid #0981b8de;
+    background-color: #fff;
+    border-radius: 5px;
+    width: 300px;
+    justify-content: space-around;
+    color: #1980b0f7;
+}
+
+.points {
+    text-align: center;
+}
+
+.points-title {
+    font-size: 24px;
+}
+
+.game-points--active {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+/* Таблица */
+
+.game-table {
+    border-radius: 5px;
+    border-collapse: collapse;
+    display: none;
+    transition: .3s;
+}
+
+.game-table--active {
+    display: block;
+}
+
+td {
+    width: 35px;
+    height: 35px;
+    background-color: #fff;
+    border: 2px solid #0981b8de;
+}
+
+.highlight-cell, .cell-opened {
+    background-color: rgb(17, 101, 228);
+}
+
+.user-cell {
+    background-color: rgb(105, 194, 138);
+}
+
+.computer-cell {
+    background-color: #e3457b;
+    ;
+}
+
+/* Модалка с поздравлением */
+
+.winner-modal {
+    border-radius: 5px;
+    display: none;
+    position: absolute;
+    z-index: 2;
+    background-color: #fbbce1;
+    width: 360px;
+    height: 360px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #033187cc;
+}
+
+.winner-modal--active {
+    display: flex;
+}
+
+.winner-modal__title {
+    line-height: 1.5;
+}
+
+.winner-modal__close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    padding: 10px;
+    font-size: 40px;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.winner-modal-overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f077bed4;
+    z-index: 1;
+    background-color: #7598f0c9;
+    cursor: pointer;
+}
+
+.winner-modal-overlay--active {
+    display: block;
+}
+
+/* Салюты */
+
+.fireworks-wrapper {
+    display: none;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.fireworks-wrapper--active {
+    display: block;
+}
+
+.fireworks {
+    transform-origin: center;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    animation: fireworks 5s infinite;
+}
+
+.firework1 {
+    top: 10%;
+    left: 5%;
+}
+
+.firework2 {
+    top: 10%;
+    right: 5%;
+}
+
+.firework3 {
+    bottom: 10%;
+    left: 20%;
+}
+
+@keyframes fireworks {
+    0% {
+        transform: scale(0.7);
+        opacity: 0.5;
+    }
+    80% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+}
